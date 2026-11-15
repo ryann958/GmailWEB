@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f6fa" />
+    <meta
+      name="description"
+      content="Buat teks acak berisi huruf dan angka, lalu simpan ke akun MailMu Anda."
+    />
+    <title>MailMu — Generator Teks Acak</title>
+    <link rel="stylesheet" href="./css/styles.css?v=mailmu-referrals-20261115-2" />
+    <script src="./js/app.js?v=mailmu-referrals-20261115-2" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="main-sidebar" aria-label="Navigasi utama">
+        <div class="sidebar-heading">
+          <a class="brand" href="#" data-go="overview" aria-label="MailMu, beranda">
+            <img class="brand-mark" src="./assets/mailmu-mark.png" alt="" width="492" height="310" />
+            <span class="brand-name">Mail<span class="brand-light">Mu</span></span>
+          </a>
+          <button class="sidebar-collapse-toggle" id="sidebar-collapse-toggle" type="button" aria-controls="main-sidebar" aria-expanded="true" aria-label="Lipat sidebar" title="Lipat sidebar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 5-7 7 7 7" /></svg>
+          </button>
+          <button class="sidebar-close" id="sidebar-close" type="button" aria-label="Tutup menu">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
+          </button>
+        </div>
+
+        <div class="workspace-label">MENU UTAMA</div>
+        <nav class="nav-list" aria-label="Menu">
+          <button class="nav-item is-active" data-page="overview" type="button" aria-current="page" aria-label="Ringkasan" title="Ringkasan">
+            <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3.5 10 8.5-7 8.5 7v10a1 1 0 0 1-1 1h-5v-6h-5v6h-5a1 1 0 0 1-1-1V10Z" /></svg></span>
+            <span>Ringkasan</span>
+          </button>
+          <button class="nav-item" data-page="requests" type="button" aria-label="Generator teks" title="Generator teks">
+            <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5h8l4 4V20a.5.5 0 0 1-.5.5h-11A.5.5 0 0 1 6 20V3.5Z" /><path d="M14 3.5v4h4m-9 4h6m-6 3.5h6m-6 3.5h4" /></svg></span>
+            <span>Generator teks</span>
+            <span class="nav-count" id="nav-request-count">0</span>
+          </button>
+          <button class="nav-item" data-page="history" type="button" aria-label="Riwayat" title="Riwayat">
+            <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 7v5l3 2" /></svg></span>
+            <span>Riwayat</span>
+          </button>
+          <button class="nav-item" data-page="withdrawals" type="button" aria-label="Tarik saldo" title="Tarik saldo">
+            <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7.5h16v12H4zM4 10h16M8 15h3" /><path d="M7 4.5h13" /></svg></span>
+            <span>Tarik saldo</span>
+          </button>
+          <button class="nav-item" data-page="community" type="button" aria-label="Komunitas" title="Komunitas">
+            <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" /><circle cx="17" cy="9" r="2.5" /><path d="M3.5 19a5.5 5.5 0 0 1 11 0m.5-4a4.5 4.5 0 0 1 5.5 4" /></svg></span>
+            <span>Komunitas</span>
+          </button>
+          <div class="nav-group-label">FITUR & AKUN</div>
+          <button class="nav-item" data-page="referral" type="button" aria-label="Undang teman" title="Undang teman">
+            <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" /><path d="M3.5 19a5.5 5.5 0 0 1 11 0m3-12v6m-3-3h6" /></svg></span>
+            <span>Undang teman</span>
+          </button>
+          <button class="nav-item" data-page="leaderboard" type="button" aria-label="Papan peringkat" title="Papan peringkat">
+            <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 16V9h3v7m3 0V4h3v12m3 0v-5h3v5" /></svg></span>
+            <span>Papan peringkat</span>
+          </button>
+          <button class="nav-item" data-page="rules" type="button" aria-label="Panduan" title="Panduan">
+            <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4h13v16H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" /><path d="M8 8h7m-7 4h7m-7 4h5" /></svg></span>
+            <span>Panduan</span>
+          </button>
+          <button class="nav-item" data-page="terms" type="button" aria-label="Privasi dan ketentuan" title="Privasi dan ketentuan">
+            <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5h8l4 4V20a.5.5 0 0 1-.5.5h-11A.5.5 0 0 1 6 20V3.5Z" /><path d="M14 3.5v4h4m-9 4h6m-6 3.5h6m-6 3.5h4" /></svg></span>
+            <span>Privasi & ketentuan</span>
+          </button>
+          <button class="nav-item" data-page="support" type="button" aria-label="Bantuan" title="Bantuan">
+            <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6.5h16v11H4zM4.5 7l7.5 6 7.5-6" /></svg></span>
+            <span>Bantuan</span>
+          </button>
+          <button class="nav-item" data-page="tickets" type="button" aria-label="Laporan saya" title="Laporan saya">
+            <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4.5h14v15H5z" /><path d="M8 8h8m-8 4h8m-8 4h5" /></svg></span>
+            <span>Laporan saya</span>
+            <span class="nav-count" id="nav-ticket-count">0</span>
+          </button>
+          <button class="nav-item" data-page="profile" type="button" aria-label="Akun MailMu" title="Akun MailMu">
+            <span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5" /><path d="M4.5 20a7.5 7.5 0 0 1 15 0" /></svg></span>
+            <span>Akun MailMu</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-spacer"></div>
+        <div class="sidebar-note">
+          <span class="note-icon" aria-hidden="true">i</span>
+          <p>Generator membuat Gmail acak berakhiran @gmail.com.</p>
+        </div>
+        <div class="profile">
+          <div class="avatar">P</div>
+          <div class="profile-copy">
+            <strong id="sidebar-user-name">Pengunjung</strong>
+            <span>Workspace lokal</span>
+          </div>
+          <span class="profile-menu" aria-hidden="true">···</span>
+        </div>
+      </aside>
+      <button class="sidebar-scrim" id="sidebar-scrim" type="button" aria-label="Tutup menu" hidden></button>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="back-button" id="app-back-button" type="button" aria-label="Kembali ke halaman sebelumnya" title="Kembali" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7" /></svg>
+            <span>Kembali</span>
+          </button>
+          <a class="brand" href="#" data-go="overview" aria-label="MailMu, beranda">
+            <img class="brand-mark" src="./assets/mailmu-mark.png" alt="" width="492" height="310" />
+            <span class="brand-copy"><span class="brand-name">Mail<span class="brand-light">Mu</span></span><span class="brand-caption">TEXT GENERATOR</span></span>
+          </a>
+          <span class="topbar-title" id="breadcrumb-current" aria-live="polite">Ringkasan</span>
+          <div class="topbar-actions">
+            <button class="support-link" type="button" data-go="support" aria-label="Bantuan"><svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v11H4zM4.5 7l7.5 6 7.5-6" /></svg><span>Bantuan</span></button>
+            <button class="theme-toggle" id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Ganti ke tema gelap" title="Ganti ke tema gelap">
+              <span class="theme-toggle-label">Tema</span>
+              <span class="theme-switch-track" aria-hidden="true">
+                <svg class="theme-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5" /><path d="M12 2.5v2m0 15v2m9.5-9.5h-2m-15 0h-2m16.2-6.2-1.4 1.4M6.7 17.3l-1.4 1.4m13.4 0-1.4-1.4M6.7 6.7 5.3 5.3" /></svg>
+                <svg class="theme-moon" viewBox="0 0 24 24"><path d="M19.5 15.2A8 8 0 0 1 8.8 4.5 8.5 8.5 0 1 0 19.5 15.2Z" /></svg>
+                <span class="theme-switch-thumb"></span>
+              </span>
+              <span class="theme-toggle-mode" id="theme-toggle-mode">Terang</span>
+            </button>
+            <button class="icon-button" id="reset-demo" type="button" aria-label="Reset data demo" title="Reset data demo">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 2.64-6.36L3 8m0-5v5h5" /></svg>
+            </button>
+          </div>
+        </header>
+
+        <div class="content-wrap">
+          <div class="demo-banner" role="note">
+            <span class="banner-icon" aria-hidden="true">!</span>
+            <div>
+              <strong>Generator teks acak MailMu</strong>
+              <p>NOTE: Wajib mematuhi semua rules yang berlaku. Pelanggaran aturan dapat menyebabkan akun diblokir.
+</p>
+            </div>
+            <button class="banner-dismiss" type="button" aria-label="Tutup pemberitahuan">×</button>
+          </div>
+
+          <section class="page-section is-visible" id="page-overview" aria-labelledby="welcome-title">
+            <div class="page-heading dashboard-welcome">
+              <div><p class="eyebrow" id="today-label">GENERATOR TEKS MAILMU</p><h1 id="welcome-title">Halo, <span id="welcome-name">Pengunjung</span></h1><p class="page-subtitle">Buat teks acak dan simpan hasilnya ke akun Anda.</p></div>
+              <button class="profile-chip" type="button" data-page="profile"><span class="avatar" id="header-avatar">P</span><span id="header-user-name">Pengunjung</span><span aria-hidden="true">⌄</span></button>
+            </div>
+
+            <section class="balance-card" aria-labelledby="balance-title">
+              <div class="balance-card-top"><span class="balance-label"><svg class="balance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12V7H5a2 2 0 1 1 0-4h14v4" /><path d="M3 7v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /><path d="M18 12h.01" /></svg> SALDO ANDA</span><span class="balance-decoration" aria-hidden="true">MM</span></div>
+              <div class="balance-total-row"><h2 id="balance-title"><span id="stat-balance">—</span></h2><label class="sr-only" for="balance-currency">Mata uang saldo</label><select class="balance-currency-select" id="balance-currency" aria-label="Mata uang saldo"><option value="IDR">IDR (Rp)</option><option value="USD">USD ($)</option></select></div>
+              <p id="balance-note">Masuk untuk melihat saldo penghasilan Anda.</p>
+              <small class="balance-rate-note" id="balance-rate-note">Rp4.000 untuk setiap Gmail yang disetujui admin.</small>
+              <div class="balance-actions">
+                <button type="button" data-page="withdrawals"><svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg> Tarik saldo</button>
+                <button type="button" data-page="history"><svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M12 7v5l3 2" /></svg> Riwayat teks</button>
+              </div>
+            </section>
+
+            <section class="shortcut-panel core-shortcuts" aria-label="Fitur utama">
+              <button class="shortcut-item shortcut-highlight" type="button" data-page="requests"><span class="shortcut-icon shortcut-indigo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6" /></svg></span><strong>Buat teks</strong></button>
+              <button class="shortcut-item" type="button" data-page="history"><span class="shortcut-icon shortcut-mint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 7v5l3 2" /></svg></span><strong>Riwayat</strong></button>
+              <button class="shortcut-item" type="button" data-page="checker"><span class="shortcut-icon shortcut-teal" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8" /><path d="m16 16 4 4m-12-9 2 2 4-4" /></svg></span><strong>Status teks</strong></button>
+              <button class="shortcut-item" type="button" data-page="profile"><span class="shortcut-icon shortcut-amber" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5" /><path d="M4.5 20a7.5 7.5 0 0 1 15 0" /></svg></span><strong>Akun</strong></button>
+              <button class="shortcut-item" type="button" data-page="rules"><span class="shortcut-icon shortcut-plum" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5h13v16H7a3 3 0 0 1-3-3v-10a3 3 0 0 1 3-3Z" /><path d="M7 4.5v13a3 3 0 0 0-3 3m7-12h6m-6 4h6" /></svg></span><strong>Panduan</strong></button>
+            </section>
+
+            <section class="shortcut-panel secondary-shortcuts" aria-label="Layanan lainnya">
+              <button class="shortcut-item" type="button" data-page="support"><span class="shortcut-icon shortcut-outline" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M9.7 9a2.4 2.4 0 1 1 4.1 1.7c-1.1 1.1-1.8 1.3-1.8 2.8m0 3h.01" /></svg></span><strong>Bantuan</strong></button>
+              <button class="shortcut-item" type="button" data-page="community"><span class="shortcut-icon shortcut-outline" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" /><circle cx="17" cy="9" r="2.5" /><path d="M3.5 19a5.5 5.5 0 0 1 11 0m.5-4a4.5 4.5 0 0 1 5.5 4" /></svg></span><strong>Komunitas</strong></button>
+              <button class="shortcut-item" type="button" data-page="leaderboard"><span class="shortcut-icon shortcut-outline" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19.5h14M7 16V9h3v7m2 0V5h3v11m2 0v-4h3v4" /></svg></span><strong>Peringkat</strong></button>
+              <button class="shortcut-item" type="button" data-page="referral"><span class="shortcut-icon shortcut-outline" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" /><path d="M3.5 19a5.5 5.5 0 0 1 11 0m2-11h4m-2-2v4m-2.5 4.5 2 2 3.5-4" /></svg></span><strong>Undang</strong></button>
+              <button class="shortcut-item" type="button" data-page="tickets"><span class="shortcut-icon shortcut-outline" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4.5h14v15H5zM8 8h8m-8 4h8m-8 4h5" /></svg></span><strong>Laporan</strong><span class="shortcut-count" id="shortcut-ticket-count">0</span></button>
+            </section>
+
+            <button class="terms-shortcut" type="button" data-page="terms"><span class="terms-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 4.5h12v15H8a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3Z" /><path d="M9 9h7m-7 4h7m-7 4h4" /></svg></span><span><strong>Privasi & ketentuan</strong><small>Baca batasan dan informasi prototipe</small></span><span class="terms-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" /></svg></span></button>
+
+            <section class="recent-activity panel" aria-labelledby="recent-activity-title">
+              <div class="panel-heading table-heading activity-heading">
+                <div class="activity-heading-copy">
+                  <span class="activity-heading-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 6.5h14M5 12h14M5 17.5h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /><circle cx="18" cy="17.5" r="3" stroke="currentColor" stroke-width="1.8" /></svg>
+                  </span>
+                  <div>
+                    <p class="activity-kicker">RINGKASAN AKTIVITAS</p>
+                    <h2 id="recent-activity-title">Aktivitas terbaru</h2>
+                    <p>Pantau teks acak yang sudah Anda kirim.</p>
+                  </div>
+                </div>
+                <button class="text-button" type="button" data-page="history">Lihat semua riwayat <svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>
+              </div>
+              <div id="recent-requests"></div>
+            </section>
+
+            <div class="dashboard-lower-links"><button type="button" data-page="profile">Pengaturan akun</button></div>
+          </section>
+
+          <section class="page-section" id="page-requests" aria-labelledby="requests-title">
+            <div class="page-heading">
+              <div><p class="eyebrow">GENERATOR TEKS ACAK</p><h1 id="requests-title">Buat teks acak</h1><p class="page-subtitle">Buat 20 karakter acak berisi huruf dan angka, diakhiri @gmail.com.</p></div>
+              <button class="button button-primary" type="button" id="requests-new">Acak teks <svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5" /><path d="M5.5 9A7 7 0 0 1 18 6l2 2M4 16l2 2a7 7 0 0 0 12.5-3" /></svg></button>
+            </div>
+            <div class="request-workspace-grid">
+              <section class="panel request-panel">
+                <div class="panel-heading"><div><h2>Teks baru</h2><p>Teks acak dibuat oleh server secara aman.</p></div><span class="panel-step">20 KARAKTER</span></div>
+                <p class="generator-note"><strong>Catatan:</strong> Hasil hanya berupa teks acak berakhiran <code>@ryann.com</code>, bukan alamat email atau inbox aktif. Anda dapat menyalinnya sebelum dikirim; pengiriman akan tersimpan di akun untuk ditinjau admin.</p>
+                <div class="generation-preview">
+                  <div class="generation-symbol" aria-hidden="true">#</div>
+                  <div class="generation-copy"><span>TEKS ACAK</span><strong id="generated-text-preview" aria-live="polite">Klik acak teks</strong></div>
+                  <button class="button button-secondary button-small generation-copy-button" id="copy-generated-text" type="button" disabled aria-label="Salin teks acak" title="Buat teks terlebih dahulu">Salin</button>
+                </div>
+                <label class="confirm-row"><input id="confirm-generated-text" type="checkbox" /><span>Saya memahami bahwa hasil ini hanya teks acak, bukan email, Gmail, atau akun.</span></label>
+                <button class="button button-primary button-wide" id="request-submit" type="button" disabled>Kirim teks ke akun saya <svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg></button>
+                <div class="request-footnote">Teks yang dikirim tersimpan di server dan dapat ditampilkan di dashboard admin.</div>
+              </section>
+              <section class="panel process-panel">
+                <div class="panel-heading"><div><h2>Persyaratan demo</h2><p>Informasi sebelum mengirim.</p></div></div>
+                <ul class="simple-list">
+                  <li><span>✓</span> Awalan setiap hasil berisi 20 karakter acak.</li>
+                  <li><span>✓</span> Kombinasi mencakup huruf dan angka.</li>
+                  <li><span>✓</span> Setiap hasil diakhiri @gmail.com.</li>
+                  <li><span>✓</span> Generator tidak membuat inbox atau akun email.</li>
+                  <li><span>✓</span> Kiriman terkait dengan akun MailMu Anda.</li>
+                </ul>
+              </section>
+            </div>
+            <section class="panel table-panel">
+              <div class="panel-heading table-heading"><div><h2>Teks yang dikirim</h2><p>Daftar teks tersimpan pada akun Anda.</p></div><button class="text-button" type="button" data-go="history">Buka riwayat <svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button></div>
+              <div id="request-list"></div>
+            </section>
+          </section>
+
+          <section class="page-section" id="page-withdrawals" aria-labelledby="withdrawals-title">
+            <div class="page-heading">
+              <div><p class="eyebrow">PENCAIRAN SALDO</p><h1 id="withdrawals-title">Tarik saldo</h1><p class="page-subtitle">Ajukan pencairan saldo tersedia ke rekening bank atau e-wallet Anda.</p></div>
+            </div>
+            <div class="withdrawal-summary panel" id="withdrawal-summary" aria-live="polite">
+              <p>Memuat saldo dan batas minimum penarikan…</p>
+            </div>
+            <div class="withdrawal-layout">
+              <section class="panel withdrawal-form-panel" aria-labelledby="withdrawal-form-title">
+                <div class="panel-heading"><div><h2 id="withdrawal-form-title">Informasi pencairan</h2><p>Pastikan detail tujuan dan nama pemilik benar.</p></div></div>
+                <form id="withdrawal-form" class="withdrawal-form">
+                  <label class="withdrawal-field" for="withdrawal-amount">Jumlah penarikan (Rupiah)
+                    <input id="withdrawal-amount" name="amountIdr" type="number" inputmode="numeric" step="1" min="1" required />
+                  </label>
+                  <label class="withdrawal-field" for="withdrawal-method">Metode pencairan
+                    <select id="withdrawal-method" name="method" required>
+                      <option value="bank">Transfer bank</option>
+                      <option value="dana">DANA</option>
+                      <option value="ovo">OVO</option>
+                      <option value="gopay">GoPay</option>
+                    </select>
+                  </label>
+                  <label class="withdrawal-field" id="withdrawal-bank-field" for="withdrawal-bank">Nama bank
+                    <input id="withdrawal-bank" name="bankName" type="text" maxlength="80" autocomplete="off" />
+                  </label>
+                  <label class="withdrawal-field" for="withdrawal-recipient">Nama pemilik rekening/akun
+                    <input id="withdrawal-recipient" name="recipientName" type="text" maxlength="80" autocomplete="name" required />
+                  </label>
+                  <label class="withdrawal-field" for="withdrawal-destination">Nomor rekening/nomor tujuan
+                    <input id="withdrawal-destination" name="destination" type="text" maxlength="64" autocomplete="off" required />
+                  </label>
+                  <p class="withdrawal-form-message" id="withdrawal-form-message" role="status" aria-live="polite"></p>
+                  <button class="button button-primary" id="withdrawal-submit" type="submit" disabled>Kirim pengajuan</button>
+                </form>
+                <p class="withdrawal-disclosure">Pengajuan diproses manual oleh admin. Pencairan ditargetkan dalam 1 x 24 jam setelah pengajuan. Informasi rekening hanya ditampilkan kepada admin yang berwenang.</p>
+              </section>
+              <section class="panel table-panel withdrawal-history-panel" aria-labelledby="withdrawal-history-title">
+                <div class="panel-heading"><div><h2 id="withdrawal-history-title">Riwayat penarikan</h2><p>Pantau status pengajuan dan catatan admin.</p></div></div>
+                <div id="withdrawal-history" aria-live="polite"><p class="table-message">Memuat riwayat…</p></div>
+              </section>
+            </div>
+          </section>
+
+          <section class="page-section" id="page-history" aria-labelledby="history-title">
+            <div class="page-heading"><div><p class="eyebrow">AKTIVITAS</p><h1 id="history-title">Riwayat teks</h1><p class="page-subtitle">Telusuri teks acak yang tersimpan di akun Anda.</p></div><button class="button button-secondary" type="button" data-go="requests"><svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg> Buat teks</button></div>
+            <div class="panel table-panel">
+              <div class="toolbar">
+                <label class="search-box"><span aria-hidden="true">⌕</span><input id="request-search" type="search" placeholder="Cari teks atau ID..." /></label>
+                <label class="select-wrap"><span class="sr-only">Filter status</span><select id="request-filter"><option value="all">Semua status</option><option value="submitted">Disetorkan</option><option value="pending">Pending</option><option value="checking">Sedang dicek</option><option value="accepted">Diterima</option><option value="rejected">Ditolak</option></select></label>
+              </div>
+              <div id="all-requests"></div>
+            </div>
+          </section>
+
+          <section class="page-section" id="page-checker" aria-labelledby="checker-title">
+            <div class="page-heading"><div><p class="eyebrow">STATUS TEKS</p><h1 id="checker-title">Status pengiriman</h1><p class="page-subtitle">Lihat status teks yang tersimpan di akun Anda.</p></div></div>
+            <div class="checker-summary"><div class="panel"><span>Menunggu</span><strong id="checker-waiting">0</strong></div><div class="panel"><span>Sedang dicek</span><strong id="checker-active">0</strong></div><div class="panel"><span>Selesai</span><strong id="checker-done">0</strong></div></div>
+            <section class="panel table-panel"><div class="panel-heading table-heading"><div><h2>Teks yang dikirim</h2><p>Status tersimpan bersama teks di server.</p></div></div><div id="checker-requests"></div></section>
+          </section>
+
+          <section class="page-section" id="page-request-detail" aria-labelledby="request-detail-title">
+            <div class="page-heading"><div><p class="eyebrow">RINCIAN AKTIVITAS</p><h1 id="request-detail-title">Detail teks</h1><p class="page-subtitle">Lihat teks, status, dan waktu pengiriman.</p></div><button class="button button-secondary" type="button" data-go="history"><svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7" /></svg> Kembali ke riwayat</button></div>
+            <div id="request-detail-content"></div>
+          </section>
+
+          <section class="page-section" id="page-community" aria-labelledby="community-title">
+            <div class="page-heading"><div><p class="eyebrow">WORKSPACE</p><h1 id="community-title">Papan komunitas</h1><p class="page-subtitle">Pengumuman dan informasi untuk pengguna prototipe.</p></div><span class="status-badge status-accepted">Baca saja</span></div>
+            <div class="community-grid">
+              <article class="panel announcement-card announcement-featured"><span class="announcement-tag">PENGUMUMAN</span><h2>Selamat datang di MailMu</h2><p>Gunakan generator untuk membuat teks acak berisi huruf dan angka. Setiap kiriman terhubung ke akun MailMu Anda.</p><span class="announcement-date">Informasi workspace</span></article>
+              <article class="panel announcement-card"><span class="announcement-tag tag-blue">PANDUAN</span><h2>Jaga data tetap aman</h2><p>Jangan masukkan kata sandi, token akses, atau detail pembayaran ke prototipe lokal.</p></article>
+              <article class="panel announcement-card"><span class="announcement-tag tag-green">STATUS</span><h2>Pengelolaan admin terpisah</h2><p>Kiriman tersimpan di server dan hanya dapat ditinjau admin melalui halaman khusus.</p></article>
+            </div>
+          </section>
+
+          <section class="page-section" id="page-referral" aria-labelledby="referral-title">
+            <div class="page-heading"><div><p class="eyebrow">PROGRAM UNDANGAN</p><h1 id="referral-title">Undang teman</h1><p class="page-subtitle">Bagikan tautan Anda. Undangan dihitung setelah akun baru memverifikasi email.</p></div></div>
+            <div class="referral-layout">
+              <section class="panel referral-card" aria-labelledby="referral-link-title">
+                <h2 id="referral-link-title">Tautan undangan Anda</h2>
+                <p>Teman yang mendaftar melalui tautan ini akan tercatat pada progres undangan Anda.</p>
+                <div id="referral-link-content" aria-live="polite"><p role="status">Masuk untuk memuat tautan undangan.</p></div>
+              </section>
+              <section class="panel referral-stats" aria-labelledby="referral-progress-title">
+                <h2 id="referral-progress-title">Progres reward</h2>
+                <div id="referral-progress-content" aria-live="polite"><p role="status">Progres akan tampil setelah Anda masuk.</p></div>
+              </section>
+            </div>
+          </section>
+
+          <section class="page-section" id="page-leaderboard" aria-labelledby="leaderboard-title">
+            <div class="page-heading"><div><p class="eyebrow">KOMUNITAS MAILMU</p><h1 id="leaderboard-title">Papan peringkat</h1><p class="page-subtitle">10 pengguna teratas sepanjang masa berdasarkan teks yang disetujui dan saldo akun.</p></div></div>
+            <section class="panel table-panel"><div class="panel-heading table-heading"><div><h2>Pengguna teratas</h2><p>Saldo bertambah Rp4.000 untuk setiap gmail yang disetujui admin.</p></div></div><div id="leaderboard-table" aria-live="polite"></div></section>
+          </section>
+
+          <section class="page-section" id="page-rules" aria-labelledby="rules-title">
+            <div class="page-heading"><div><p class="eyebrow">PUSAT INFORMASI</p><h1 id="rules-title">Panduan penggunaan</h1><p class="page-subtitle">Batasan dan informasi penting prototipe MailMu.</p></div></div>
+            <section class="panel rules-hero"><span class="rules-kicker">INFO GENERATOR</span><h2>Hasil teks acak</h2><p>Generator membuat awalan 20 karakter yang berisi huruf besar, huruf kecil, dan sedikitnya satu angka, lalu menambahkan akhiran @gmail.com. Ini tidak membuat inbox atau akun email.</p></section>
+            <section class="panel rules-content"><h2>Privasi dan penggunaan</h2><ol class="rules-list"><li><strong>Hasil acak.</strong> Setiap teks dibuat di server menggunakan generator acak kriptografis.</li><li><strong>Terhubung ke akun.</strong> Teks yang dikirim disimpan bersama ID akun dan waktu pengiriman.</li><li><strong>Jangan masukkan rahasia.</strong> Teks yang dibuat otomatis; jangan gunakan untuk menyimpan kata sandi atau data pribadi.</li><li><strong>Dashboard admin.</strong> Kiriman ditinjau admin pada halaman terpisah dan tidak tersedia bagi akun biasa.</li><li><strong>Keamanan akun.</strong> Keluar dari akun jika menggunakan perangkat bersama.</li></ol><label class="confirm-row rules-confirm"><input id="rules-acknowledged" type="checkbox" /><span>Saya memahami cara kerja generator teks.</span></label></section>
+          </section>
+
+          <section class="page-section" id="page-terms" aria-labelledby="terms-title">
+            <div class="page-heading"><div><p class="eyebrow">INFORMASI PRODUK</p><h1 id="terms-title">Privasi & ketentuan demo</h1><p class="page-subtitle">Ringkasan cara kerja prototipe yang sedang Anda lihat.</p></div></div>
+            <section class="panel rules-content terms-content">
+              <h2>Data pada prototipe</h2>
+              <p>Teks yang dikirim melalui generator disimpan di server dan dikaitkan dengan akun Anda. Laporan bantuan tersimpan lokal di browser. Referral dan reward undangan dicatat oleh server MailMu.</p>
+              <h2>Batasan layanan</h2>
+              <p>MailMu memiliki autentikasi pengguna dan generator teks yang tersimpan di server. Fitur bantuan masih dalam pengembangan.</p>
+              <h2>Penggunaan generator</h2>
+              <p>Hasil generator adalah teks acak dengan akhiran @gmail.com. Teks ini tidak membuat mailbox atau akun pada layanan email. Jangan gunakan generator untuk menyimpan data pribadi.</p>
+              <h2>Kontak dan penghapusan data</h2>
+              <p>Backend dukungan belum tersedia. Teks generator tersimpan di server dan tidak dihapus oleh tombol reset data demo lokal.</p>
+              <div class="terms-note"><strong>Catatan:</strong> teks ini adalah placeholder produk, bukan nasihat hukum atau kebijakan privasi final.</div>
+            </section>
+          </section>
+
+          <section class="page-section" id="page-support" aria-labelledby="support-title">
+            <div class="page-heading"><div><p class="eyebrow">PUSAT BANTUAN</p><h1 id="support-title">Hubungi bantuan</h1><p class="page-subtitle">Buat catatan bantuan lokal. Pesan tidak dikirim ke admin atau server.</p></div><span class="status-badge status-pending">Mode lokal</span></div>
+            <div class="support-layout">
+              <section class="panel support-info"><div class="support-icon">?</div><h2>Bagaimana kami bisa membantu?</h2><p>Jelaskan kendala pada prototipe. Jangan sertakan kata sandi, kode verifikasi, atau informasi sensitif.</p><div class="support-hours"><span class="trend-dot"></span> Backend dukungan belum tersedia</div><button class="button button-secondary" type="button" data-go="tickets">Lihat laporan saya <svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button></section>
+              <form class="panel support-form" id="support-form"><h2>Buat laporan demo</h2><label for="ticket-subject">Topik</label><select id="ticket-subject" required><option value="">Pilih topik</option><option>Pengajuan alias</option><option>Status review</option><option>Kredit demo</option><option>Masukan prototipe</option></select><label for="ticket-message">Pesan</label><textarea id="ticket-message" rows="5" maxlength="500" placeholder="Tuliskan pertanyaan singkat..." required></textarea><div class="form-hint">Maksimal 500 karakter · disimpan lokal</div><button class="button button-primary" type="submit">Simpan laporan demo <svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button></form>
+            </div>
+          </section>
+
+          <section class="page-section" id="page-tickets" aria-labelledby="tickets-title">
+            <div class="page-heading"><div><p class="eyebrow">PUSAT BANTUAN</p><h1 id="tickets-title">Laporan saya</h1><p class="page-subtitle">Laporan contoh yang disimpan di browser ini.</p></div><button class="button button-primary" type="button" data-go="support"><svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg> Buat laporan</button></div>
+            <section class="panel table-panel"><div class="panel-heading table-heading"><div><h2>Daftar laporan</h2><p>Balasan admin tidak tersedia tanpa backend.</p></div></div><div id="ticket-list"></div></section>
+          </section>
+
+          <section class="page-section" id="page-profile" aria-labelledby="profile-title">
+            <div class="page-heading"><div><p class="eyebrow">PENGATURAN WORKSPACE</p><h1 id="profile-title">Akun MailMu</h1><p class="page-subtitle">Kelola sesi masuk Anda di perangkat ini.</p></div></div>
+            <section class="panel profile-form"><div class="profile-large-avatar" id="profile-avatar">D</div><div class="profile-field"><label>Nama akun</label><div class="readonly-field" id="profile-account-name">Belum masuk</div></div><div class="profile-field"><label>Email akun</label><div class="readonly-field" id="profile-email">Belum masuk</div></div><div class="profile-form-actions"><a class="button button-secondary auth-preview-link" id="profile-login-link" href="./auth.html?next=%2Findex.html">Masuk atau buat akun</a><button class="button button-secondary" id="dashboard-logout" type="button" hidden>Keluar dari akun</button><span class="login-placeholder">Teks yang Anda kirim hanya dapat dilihat dari akun ini. Pengelolaan admin menggunakan halaman dan hak akses terpisah.</span></div></section>
+          </section>
+
+          <footer class="footer-note"><span>MailMu <span id="footer-year"></span></span><span>Generator tersimpan di akun · Pengelolaan admin terpisah</span></footer>
+        </div>
+        <nav class="bottom-navigation" aria-label="Navigasi utama">
+          <button type="button" data-page="overview" aria-current="page">
+            <span class="dock-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3.5 10 8.5-7 8.5 7v10a1 1 0 0 1-1 1h-5v-6h-5v6h-5a1 1 0 0 1-1-1V10Z" /></svg></span>
+            <small>Beranda</small>
+          </button>
+          <button type="button" data-page="history">
+            <span class="dock-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 12a8.5 8.5 0 1 0 2.2-5.7L3.5 8.5" /><path d="M3.5 3.8v4.7h4.7M12 7v5l3.3 2" /></svg></span>
+            <small>Riwayat</small>
+          </button>
+          <button type="button" class="bottom-primary" data-page="requests" aria-label="Buat teks acak">
+            <span class="dock-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></svg></span>
+            <small>Buat teks</small>
+          </button>
+          <button type="button" data-page="withdrawals" aria-label="Tarik saldo">
+            <span class="dock-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7.5h16v12H4zM4 10h16M8 15h3" /><path d="M7 4.5h13" /></svg></span>
+            <small>Tarik saldo</small>
+          </button>
+          <button type="button" id="mobile-nav-toggle" aria-controls="main-sidebar" aria-expanded="false" aria-label="Buka menu lainnya" title="Buka menu lainnya">
+            <span class="dock-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></svg></span>
+            <small>Menu</small>
+          </button>
+        </nav>
+      </main>
+    </div>
+    <dialog class="detail-dialog" id="request-detail-dialog" aria-labelledby="detail-dialog-title">
+      <div class="dialog-heading"><div><p class="eyebrow">RINCIAN PERMINTAAN</p><h2 id="detail-dialog-title">Status pengajuan</h2></div><button class="icon-button" id="close-detail-dialog" type="button" aria-label="Tutup"><svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button></div>
+      <div id="detail-dialog-content"></div>
+    </dialog>
+    <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>
+  </body>
+</html>

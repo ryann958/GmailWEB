@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f6fa" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      name="description"
+      content="Masuk, buat akun, dan pulihkan akun MailMu."
+    />
+    <title>Masuk — MailMu</title>
+    <link rel="stylesheet" href="./css/styles.css?v=mailmu-referrals-20261115-2" />
+    <link rel="stylesheet" href="./css/auth.css?v=mailmu-logo-20261115" />
+    <script src="./js/auth.js?v=mailmu-referrals-20261115-2" defer></script>
+  </head>
+  <body class="auth-page">
+    <main class="auth-layout">
+      <section class="auth-intro" aria-labelledby="auth-brand-title">
+        <a class="auth-brand" href="./index.html" aria-label="MailMu, kembali ke dashboard">
+          <img class="auth-brand-mark" src="./assets/mailmu-mark.png" alt="" width="492" height="310" />
+          <span class="auth-brand-name">Mail<span class="auth-brand-accent">Mu</span></span>
+        </a>
+
+        <div class="auth-intro-copy">
+          <p class="auth-eyebrow">MAILMU TEXT GENERATOR</p>
+          <h1 id="auth-brand-title">Buat teks. Pantau statusnya.</h1>
+          <p>Masuk atau buat akun untuk mengirim teks acak, melihat hasil peninjauan, dan memeriksa saldo Anda.</p>
+        </div>
+
+        <div class="auth-preview-note">
+          <span class="auth-preview-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 3.5 20 7v5.5c0 4.2-3.1 7-8 8-4.9-1-8-3.8-8-8V7l8-3.5Z" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+          </span>
+          <span><strong>Keamanan sesi</strong><small>Sesi akun dikelola oleh server MailMu.</small></span>
+        </div>
+      </section>
+
+      <section class="auth-workspace" aria-label="Autentikasi MailMu">
+        <div class="auth-toolbar">
+          <a class="auth-back-link" href="./index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7" /></svg>
+            Kembali ke MailMu
+          </a>
+          <button
+            class="theme-toggle"
+            id="auth-theme-toggle"
+            type="button"
+            role="switch"
+            aria-checked="false"
+            aria-label="Ganti ke tema gelap"
+            title="Ganti ke tema gelap"
+          >
+            <span class="theme-toggle-label">Tema</span>
+            <span class="theme-switch-track" aria-hidden="true">
+              <svg class="theme-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5" /><path d="M12 2.5v2m0 15v2m9.5-9.5h-2m-15 0h-2m16.2-6.2-1.4 1.4M6.7 17.3l-1.4 1.4m13.4 0-1.4-1.4M6.7 6.7 5.3 5.3" /></svg>
+              <svg class="theme-moon" viewBox="0 0 24 24"><path d="M19.5 15.2A8 8 0 0 1 8.8 4.5 8.5 8.5 0 1 0 19.5 15.2Z" /></svg>
+              <span class="theme-switch-thumb"></span>
+            </span>
+            <span class="theme-toggle-mode" id="auth-theme-mode">Terang</span>
+          </button>
+        </div>
+
+        <div class="auth-card">
+          <div class="auth-card-heading">
+            <p class="auth-eyebrow" id="auth-mode-eyebrow">SELAMAT DATANG KEMBALI</p>
+            <h2 id="auth-title">Masuk ke MailMu</h2>
+            <p id="auth-description">Masukkan detail akun Anda untuk melanjutkan.</p>
+          </div>
+
+          <div class="auth-tabs" role="group" aria-label="Pilih mode autentikasi">
+            <button type="button" class="auth-tab is-active" data-auth-view="login" aria-pressed="true">Masuk</button>
+            <button type="button" class="auth-tab" data-auth-view="register" aria-pressed="false">Buat akun</button>
+          </div>
+
+          <section class="auth-panel" id="auth-panel-login" aria-labelledby="auth-title">
+            <div class="auth-fields" id="auth-fields-login" role="group" aria-label="Detail masuk">
+              <div class="auth-field">
+                <label for="login-email">Alamat email</label>
+                <input id="login-email" name="email" type="email" placeholder="nama@email.com" autocomplete="username" maxlength="254" required />
+              </div>
+              <div class="auth-field">
+                <div class="auth-label-row"><label for="login-password">Kata sandi</label><button class="auth-text-button" type="button" data-auth-view="forgot">Lupa kata sandi?</button></div>
+                <div class="auth-password-wrap">
+                  <input id="login-password" name="password" type="password" placeholder="Masukkan kata sandi" autocomplete="current-password" maxlength="128" required />
+                  <button class="auth-password-toggle" type="button" data-password-toggle="login-password" aria-label="Tampilkan kata sandi" title="Tampilkan kata sandi">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.8 12s3.2-6 9.2-6 9.2 6 9.2 6-3.2 6-9.2 6-9.2-6-9.2-6Z" /><circle cx="12" cy="12" r="2.5" /></svg>
+                  </button>
+                </div>
+              </div>
+              <button class="auth-submit" type="button" data-auth-submit="login">Masuk <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>
+            </div>
+            <p class="auth-switch-copy">Belum punya akun? <button class="auth-text-button" type="button" data-auth-view="register">Daftar sekarang</button></p>
+          </section>
+
+          <section class="auth-panel" id="auth-panel-register" aria-labelledby="auth-title" hidden>
+            <div class="auth-fields" id="auth-fields-register" role="group" aria-label="Detail pendaftaran">
+              <div class="auth-field">
+                <label for="register-name">Nama lengkap</label>
+                <input id="register-name" name="name" type="text" placeholder="Nama Anda" autocomplete="name" minlength="2" maxlength="80" required />
+              </div>
+              <div class="auth-field">
+                <label for="register-email">Alamat email</label>
+                <input id="register-email" name="email" type="email" placeholder="nama@email.com" autocomplete="email" maxlength="254" required />
+              </div>
+              <div class="auth-field">
+                <label for="register-password">Kata sandi</label>
+                <div class="auth-password-wrap">
+                  <input id="register-password" name="password" type="password" placeholder="Minimal 12 karakter" minlength="12" maxlength="128" autocomplete="new-password" required />
+                  <button class="auth-password-toggle" type="button" data-password-toggle="register-password" aria-label="Tampilkan kata sandi" title="Tampilkan kata sandi">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.8 12s3.2-6 9.2-6 9.2 6 9.2 6-3.2 6-9.2 6-9.2-6-9.2-6Z" /><circle cx="12" cy="12" r="2.5" /></svg>
+                  </button>
+                </div>
+                <small class="auth-field-hint">Gunakan sedikitnya 12 karakter.</small>
+              </div>
+              <button class="auth-submit" type="button" data-auth-submit="register">Buat akun <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>
+            </div>
+            <p class="auth-switch-copy">Sudah punya akun? <button class="auth-text-button" type="button" data-auth-view="login">Masuk</button></p>
+          </section>
+
+          <section class="auth-panel" id="auth-panel-verify" aria-labelledby="auth-title" hidden>
+            <div class="auth-fields" id="auth-fields-verify" role="group" aria-label="Verifikasi email">
+              <p class="auth-verification-copy">Masukkan kode 6 digit yang dikirim ke <strong id="verification-email"></strong>. Kode berlaku selama 10 menit.</p>
+              <div class="auth-field">
+                <label for="verification-code">Kode verifikasi</label>
+                <input id="verification-code" name="verification-code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" minlength="6" maxlength="6" placeholder="000000" aria-describedby="verification-code-hint" required />
+                <small class="auth-field-hint" id="verification-code-hint">Jangan bagikan kode ini kepada siapa pun.</small>
+              </div>
+              <button class="auth-submit" type="button" data-auth-submit="verify">Verifikasi email <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>
+            </div>
+            <p class="auth-switch-copy">Belum menerima kode? <button class="auth-text-button" id="resend-verification-code" type="button">Kirim ulang kode</button></p>
+            <p class="auth-switch-copy"><button class="auth-text-button" type="button" data-auth-view="login">Kembali ke masuk</button></p>
+          </section>
+
+          <section class="auth-panel" id="auth-panel-forgot" aria-labelledby="auth-title" hidden>
+            <div class="auth-fields" id="auth-fields-forgot" role="group" aria-label="Pemulihan kata sandi">
+              <div class="auth-field">
+                <label for="forgot-email">Alamat email akun</label>
+                <input id="forgot-email" name="email" type="email" placeholder="nama@email.com" autocomplete="email" maxlength="254" required />
+                <small class="auth-field-hint">Jika akun ditemukan, instruksi pemulihan akan dikirim ke alamat tersebut.</small>
+              </div>
+              <button class="auth-submit" type="button" data-auth-submit="forgot">Lanjutkan <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>
+            </div>
+            <p class="auth-switch-copy"><button class="auth-text-button" type="button" data-auth-view="login">Kembali ke masuk</button></p>
+          </section>
+
+          <section class="auth-panel" id="auth-panel-reset" aria-labelledby="auth-title" hidden>
+            <div class="auth-fields" id="auth-fields-reset" role="group" aria-label="Atur ulang kata sandi">
+              <div class="auth-field">
+                <label for="reset-password">Kata sandi baru</label>
+                <div class="auth-password-wrap">
+                  <input id="reset-password" name="password" type="password" placeholder="Minimal 12 karakter" minlength="12" maxlength="128" autocomplete="new-password" required />
+                  <button class="auth-password-toggle" type="button" data-password-toggle="reset-password" aria-label="Tampilkan kata sandi" title="Tampilkan kata sandi">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.8 12s3.2-6 9.2-6 9.2 6 9.2 6-3.2 6-9.2 6-9.2-6-9.2-6Z" /><circle cx="12" cy="12" r="2.5" /></svg>
+                  </button>
+                </div>
+                <small class="auth-field-hint">Gunakan sedikitnya 12 karakter.</small>
+              </div>
+              <div class="auth-field">
+                <label for="reset-password-confirm">Ulangi kata sandi baru</label>
+                <input id="reset-password-confirm" name="password-confirmation" type="password" placeholder="Ulangi kata sandi baru" minlength="12" maxlength="128" autocomplete="new-password" required />
+              </div>
+              <button class="auth-submit" type="button" data-auth-submit="reset">Simpan kata sandi baru <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>
+            </div>
+          </section>
+
+          <p class="auth-feedback" id="auth-feedback" role="status" aria-live="polite">
+            Menghubungkan ke server MailMu…
+          </p>
+          <button class="auth-logout" id="auth-logout" type="button" hidden>Keluar dari akun ini</button>
+        </div>
+
+        <p class="auth-footer">MailMu · Sesi akun dikelola server. Dashboard pratinjau dapat dibuka tanpa masuk; saldo dan kiriman akun memerlukan sesi.</p>
+      </section>
+    </main>
+  </body>
+</html>

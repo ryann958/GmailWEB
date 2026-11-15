@@ -1,0 +1,10 @@
+node_modules/
+.vercel/
+.agents/
+/document/
+/AGENTS.md
+/skills-lock.json
+.env
+.env.*
+!.env.example
+npm-debug.log*

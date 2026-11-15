@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f6fa" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="description" content="Dashboard administrasi MailMu." />
+    <title>Admin — MailMu</title>
+    <link rel="stylesheet" href="/admin/admin.css?v=mailmu-withdrawal-20261115-2" />
+    <script src="/admin/admin.js?v=mailmu-withdrawal-20261115-2" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/index.html" aria-label="MailMu, kembali ke dashboard utama">
+        <img class="brand-mark" src="/assets/mailmu-mark.png" alt="" width="492" height="310" />
+        <span><span class="brand-name">Mail<span class="brand-light">Mu</span></span><small>ADMIN</small></span>
+      </a>
+      <div class="topbar-actions">
+        <span class="admin-identity" id="admin-identity">Admin</span>
+        <button class="theme-toggle" id="admin-theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Ganti ke tema gelap" title="Ganti ke tema gelap">
+          <span class="theme-toggle-label">Tema</span>
+          <span class="theme-switch-track" aria-hidden="true"><span class="theme-switch-thumb"></span></span>
+          <span class="theme-toggle-mode" id="admin-theme-mode">Terang</span>
+        </button>
+        <a class="button button-light" href="/index.html">Dashboard utama</a>
+        <button class="button button-light" id="logout-button" type="button">Keluar</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="page-heading">
+        <div>
+          <p class="eyebrow">PENGELOLAAN MAILMU</p>
+          <h1>Dashboard admin</h1>
+          <p class="subtitle">Tinjau teks yang dikirim pengguna dan perbarui statusnya.</p>
+        </div>
+        <button class="button button-primary" id="refresh-button" type="button"><svg class="button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5" /><path d="M5.5 9A7 7 0 0 1 18 6l2 2M4 16l2 2a7 7 0 0 0 12.5-3" /></svg>Muat ulang</button>
+      </section>
+
+      <div class="notice" id="notice" role="status" aria-live="polite" hidden></div>
+      <section class="stats-grid" id="summary" aria-label="Ringkasan kiriman" aria-live="polite">
+        <article class="stat-card"><span>Total kiriman</span><strong data-stat="total">—</strong></article>
+        <article class="stat-card"><span>Tersimpan</span><strong data-stat="submitted">—</strong></article>
+        <article class="stat-card"><span>Menunggu</span><strong data-stat="pending">—</strong></article>
+        <article class="stat-card"><span>Sedang dicek</span><strong data-stat="checking">—</strong></article>
+        <article class="stat-card"><span>Diterima</span><strong data-stat="accepted">—</strong></article>
+        <article class="stat-card"><span>Ditolak</span><strong data-stat="rejected">—</strong></article>
+      </section>
+
+      <section class="panel submissions-panel" aria-labelledby="submissions-title">
+        <div class="panel-heading">
+          <div>
+            <h2 id="submissions-title">Kiriman pengguna</h2>
+            <p>Data memuat teks, status, waktu kirim, dan akun pemilik.</p>
+          </div>
+        </div>
+        <form class="filters" id="filter-form">
+          <label class="search-field">
+            <span class="sr-only">Cari kiriman</span>
+            <input id="search-input" type="search" maxlength="100" placeholder="Cari teks, nama, email, atau ID" />
+          </label>
+          <label>
+            <span class="sr-only">Filter status</span>
+            <select id="status-filter">
+              <option value="all">Semua status</option>
+              <option value="submitted">Tersimpan</option>
+              <option value="pending">Menunggu</option>
+              <option value="checking">Sedang dicek</option>
+              <option value="accepted">Diterima</option>
+              <option value="rejected">Ditolak</option>
+            </select>
+          </label>
+          <button class="button button-light" type="submit">Cari</button>
+        </form>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Teks</th><th>Akun pengguna</th><th>Dikirim</th><th>Perbarui status & catatan</th></tr>
+            </thead>
+            <tbody id="submission-list">
+              <tr><td colspan="4" class="table-message">Memuat kiriman…</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <nav class="pagination" aria-label="Navigasi halaman kiriman">
+          <button class="button button-light" id="previous-page" type="button" disabled>Sebelumnya</button>
+          <span id="page-label">Halaman 1</span>
+          <button class="button button-light" id="next-page" type="button" disabled>Berikutnya</button>
+        </nav>
+      </section>
+      <section class="panel withdrawals-panel" aria-labelledby="withdrawals-title">
+        <div class="panel-heading">
+          <div>
+            <h2 id="withdrawals-title">Pengajuan tarik saldo</h2>
+            <p>Transfer dana dilakukan manual terlebih dahulu. Setelah transfer, tandai pengajuan sebagai sudah dicairkan.</p>
+          </div>
+          <button class="button button-light" id="refresh-withdrawals" type="button">Muat ulang</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Jumlah</th><th>Akun pengguna</th><th>Tujuan pencairan</th><th>Diajukan</th><th>Status & catatan</th></tr>
+            </thead>
+            <tbody id="withdrawal-list">
+              <tr><td colspan="5" class="table-message">Memuat pengajuan…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <p class="footer-note">Setiap perubahan review dan status penarikan dicatat bersama akun admin dan waktu pemrosesan.</p>
+    </main>
+  </body>
+</html>
