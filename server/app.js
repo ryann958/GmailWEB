@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import {
   createHash,
   createHmac,
@@ -5,7 +6,6 @@ import {
   randomInt,
   timingSafeEqual,
 } from "node:crypto";
-import path from "node:path";
 import { fileURLToPath } from "node:url";
 import connectPgSimple from "connect-pg-simple";
 import express from "express";
@@ -27,7 +27,10 @@ import {
 } from "./validation.js";
 
 const PUBLIC_DIRECTORY = fileURLToPath(new URL("../public/", import.meta.url));
-const ADMIN_DIRECTORY = fileURLToPath(new URL("../frontend/admin/", import.meta.url));
+const ADMIN_PAGE = readFileSync(
+  new URL("../frontend/admin/index.html", import.meta.url),
+  "utf8"
+);
 const SESSION_COOKIE_NAME = "mailmu.sid";
 const SESSION_MAX_AGE_MS = 8 * 60 * 60 * 1000;
 const RESET_TOKEN_LIFETIME_MS = 30 * 60 * 1000;
@@ -344,15 +347,8 @@ export async function createApp({
       return response.status(403).type("text").send("Akses khusus admin.");
     }
     response.set("Cache-Control", "no-store");
-    response.sendFile(path.join(ADMIN_DIRECTORY, "index.html"));
+    response.type("html").send(ADMIN_PAGE);
   }));
-
-  app.get("/admin/admin.css", (_request, response) => {
-    response.sendFile(path.join(ADMIN_DIRECTORY, "admin.css"));
-  });
-  app.get("/admin/admin.js", (_request, response) => {
-    response.sendFile(path.join(ADMIN_DIRECTORY, "admin.js"));
-  });
 
   app.get("/api/auth/csrf", (request, response, next) => {
     if (!request.session.csrfToken) {
